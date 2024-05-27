@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Patron_State",
+			"Path": "C:\\Users\\HP\\Documents\\Unreal Projects\\Patron_State\\Source\\Patron_State.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "Patron_StateEditor",
+			"Path": "C:\\Users\\HP\\Documents\\Unreal Projects\\Patron_State\\Source\\Patron_StateEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

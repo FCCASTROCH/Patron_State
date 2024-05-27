@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Patron_State.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{EF623CE0-F56E-4A6C-8025-ABF9D3276F58}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Patron_State.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\Patron_StateEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{E5E48013-8E01-4E3D-80E1-4943E4C94695}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Patron_State">
+      <UniqueIdentifier>{91A48AE1-D8B8-41C8-8905-1DC1F76A4206}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Patron_State\Estado.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\Estado.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\EstadoAereo.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\EstadoAereo.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\EstadoEspacial.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\EstadoEspacial.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\EstadoTerrestre.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\EstadoTerrestre.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\NaveTerrestre.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\NaveTerrestre.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\Patron_State\Patron_State.Build.cs">
+      <Filter>Source\Patron_State</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Patron_State\Patron_State.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\Patron_State.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\Patron_StateGameMode.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\Patron_StateGameMode.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\Patron_StatePawn.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\Patron_StatePawn.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\Patron_StateProjectile.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\Patron_StateProjectile.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\ProyectilE.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\ProyectilE.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
