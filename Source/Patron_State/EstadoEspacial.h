@@ -20,21 +20,20 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-public:	
+protected:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	//Metodos de la interfaz IEstado
-	virtual void EstadoActual() override;
-	virtual void EstadoTerrestre() override;
-	virtual void EstadoEspacial() override;
-	virtual void setNaveTerrestre(ANaveTerrestre* nave) override;
-	virtual void EstadoAereo() override;
+	class ANaveTerrestre* NaveE;
 
+
+
+public:
+	void SetNaveTerrestre(class ANaveTerrestre* _Nave) override;
+	void Disparar() override;
+	
 private:
-	ANaveTerrestre* NaveE;
-	bool bIsMoving;
+	void Mover(float DeltaTime) override {};
 	FVector TargetLocation;
+	bool bIsMoving ;
 	float MoveSpeed;
-
 };

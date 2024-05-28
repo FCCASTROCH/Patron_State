@@ -21,16 +21,17 @@ protected:
 
 public:
     virtual void Tick(float DeltaTime) override;
+protected:
+	class ANaveTerrestre* NaveA;
 
-    virtual void EstadoActual() override;
-    virtual void EstadoTerrestre() override;
-    virtual void EstadoEspacial() override;
-    virtual void setNaveTerrestre(ANaveTerrestre* nave) override;
-    virtual void EstadoAereo() override;
+	float velocidad;
+public:
+	void SetNaveTerrestre(class ANaveTerrestre* _NaveTerrestre) override;
+	void Mover(float DeltaTime) override;
 
 private:
-    ANaveTerrestre* NaveA;
-    bool bIsMoving;
-    FVector TargetLocation;
-    float MoveSpeed;
+	void Disparar() override {};
+	FVector TargetLocation;
+	bool bIsMoving ;
+	float MoveSpeed;
 };

@@ -1,77 +1,63 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-// EstadoAereo.cpp
-
 #include "EstadoAereo.h"
 #include "NaveTerrestre.h"
+#include "Engine/Engine.h"
 
 AEstadoAereo::AEstadoAereo()
 {
-    PrimaryActorTick.bCanEverTick = true;
-    TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 314.0f);
-    bIsMoving = false;
-    MoveSpeed = 10.0f;
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+	velocidad = 0.5f;
+	TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 314.0f);
+	bIsMoving = true;
+	MoveSpeed = 20.0f;
 }
 
+// Called when the game starts or when spawned
 void AEstadoAereo::BeginPlay()
 {
-    Super::BeginPlay();
+	Super::BeginPlay();
+
 }
 
+// Called every frame
 void AEstadoAereo::Tick(float DeltaTime)
 {
-    Super::Tick(DeltaTime);
+	Super::Tick(DeltaTime);
+	if (bIsMoving && NaveA)
+	{
+		FVector CurrentLocation = NaveA->GetActorLocation();
+		FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, DeltaTime, MoveSpeed);
+		NaveA->SetActorLocation(NewLocation);
 
-    if (bIsMoving && NaveA)
-    {
-        FVector CurrentLocation = NaveA->GetActorLocation();
-        FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, DeltaTime, MoveSpeed);
-        NaveA->SetActorLocation(NewLocation);
-
-        if (CurrentLocation.Equals(TargetLocation, 1.0f))
-        {
-            bIsMoving = false;
-        }
-    }
+		if (CurrentLocation.Equals(TargetLocation, 1.0f))
+		{
+			bIsMoving = false;
+		}
+	}
 }
 
-void AEstadoAereo::EstadoActual()
+void AEstadoAereo::SetNaveTerrestre(ANaveTerrestre* _NaveNodriza)
 {
-  //  UE_LOG(LogTemp, Warning, TEXT("Estado Actual: Aéreo"));
-    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Actual: Aereo"));
+	NaveA = Cast<ANaveTerrestre>(_NaveNodriza);
+	NaveA->EstablecerEstados(NaveA->GetEstadoAereo());
 }
 
-void AEstadoAereo::EstadoTerrestre()
+void AEstadoAereo::Mover(float DeltaTime)
 {
-    if (NaveA)
-    {
+	//float Amplitud = 2.0f;
+	//float Frecuencia = 1.0f;
+	//float Tiempo = GetWorld()->GetTimeSeconds();  // Obtener el tiempo actual del juego
 
-        NaveA->SetEstadoTerrestre();
-       
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Cambiando al estado terrestre desde el estado aereo"));
-    }
-}
+	//// Obtener la ubicación actual del actor
+	//FVector Coordenada = NaveA->GetActorLocation();
 
-void AEstadoAereo::EstadoAereo()
-{
-    if (NaveA)
-    {
-        TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 300);
-        bIsMoving = true;
-    }
-}
+	//// Calcular el desplazamiento en zigzag en el eje Y
+	//float ZigZagY = FMath::Sin(Tiempo * Frecuencia) * Amplitud;
 
-void AEstadoAereo::EstadoEspacial()
-{
-    if (NaveA)
-    {
-        NaveA->SetEstadoEspacial();
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Cambiando al estado espacial desde el estado aereo"));
-    }
-}
+	//// Calcular la nueva ubicación
+	//FVector NewLocation = FVector(Coordenada.X - velocidad + ZigZagY * DeltaTime, Coordenada.Y + ZigZagY, GetActorLocation().Z);
 
-void AEstadoAereo::setNaveTerrestre(ANaveTerrestre* nave)
-{
-    //
-    NaveA = nave;
+	//// Establecer la nueva ubicación del actor
+	//NaveA->SetActorLocation(NewLocation);
 }

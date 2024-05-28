@@ -7,152 +7,117 @@
 #include "EstadoTerrestre.h"
 #include "EstadoAereo.h"
 #include "EstadoEspacial.h"
+#include "Estado.h"
 #include "ProyectilE.h"
 #include "Engine/World.h"
-// Sets default values
+
 ANaveTerrestre::ANaveTerrestre()
 {
-    PrimaryActorTick.bCanEverTick = true;
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshNaveEnemigocaza1(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'"));
-
-    NaveEnemigoMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-    NaveEnemigoMesh->SetupAttachment(RootComponent);
-    RootComponent = NaveEnemigoMesh;
-
-    NaveEnemigoMesh->SetStaticMesh(MeshNaveEnemigocaza1.Object);
-
-    Velocidad = 2.0f;
-    Tiempo_Disparo = 5.0f;
-    Tiempo_M = 0.f;
-    Distancia_D_CB = 200.f;
-    Tiempo_Disparo_Generar = 5.0f;
-    CurrentState = "ninguno";
-    Timer = 5.0f;
-    TiempoTranscurrido = 10.0f;
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
+	NaveNodrizaMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
+	NaveNodrizaMesh->SetStaticMesh(ShipMesh.Object);
+	GetActorRelativeScale3D();
+	SetActorScale3D(FVector(1.0f, 1.0f, 1.0f));
+	vida = 200;
+	time = 0.0f;
+	vida = 200;
+	time = 0.0f;
+	StateChangeInterval = 10.0f;
+	CurrentStateIndex = 0;
 }
 
+// Called when the game starts or when spawned
 void ANaveTerrestre::BeginPlay()
 {
-    Super::BeginPlay();
+	Super::BeginPlay();
 
-    EstadoTerrestre = GetWorld()->SpawnActor<AEstadoTerrestre>(AEstadoTerrestre::StaticClass());
-    EstadoAereo = GetWorld()->SpawnActor<AEstadoAereo>(AEstadoAereo::StaticClass());
-    EstadoEspacial = GetWorld()->SpawnActor<AEstadoEspacial>(AEstadoEspacial::StaticClass());
+	EstadoAereo = GetWorld()->SpawnActor<AEstadoAereo>(AEstadoAereo::StaticClass());
+	EstadoTerrestre = GetWorld()->SpawnActor<AEstadoTerrestre>(	AEstadoTerrestre::StaticClass());
+	EstadoEspacial = GetWorld()->SpawnActor<AEstadoEspacial>(AEstadoEspacial::StaticClass());
 
-    if (EstadoTerrestre && EstadoAereo && EstadoEspacial)
-    {
-        EstadoTerrestre->setNaveTerrestre(this);
-        EstadoAereo->setNaveTerrestre(this);
-        EstadoEspacial->setNaveTerrestre(this);
-    }
+	Inicializar(0.0f);
 }
 
+// Called every frame
 void ANaveTerrestre::Tick(float DeltaTime)
 {
-    Super::Tick(DeltaTime);
-    if (EstadoActual)
-    {
-        EstadoActual->EstadoActual();
-    }
+	Super::Tick(DeltaTime);
+
+	Disparar();
+	Mover(DeltaTime);
+	time += DeltaTime;
+	if (time >= StateChangeInterval)
+	{
+		time = 0.0f;
+		CurrentStateIndex = (CurrentStateIndex + 1) % 3;
+		Inicializar(0.0f);
+	}
 }
 
-void ANaveTerrestre::Mover(float DeltaTime) {
-    // Obtiene la posición actual del actor
-    FVector PosicionActual = GetActorLocation();
-
-    // Parámetros para simular el movimiento de la cometa
-    float VelocidadBase = 50.0f; // Velocidad base de la cometa
-    float Amplitud = 100.0f; // Amplitud de la oscilación
-    float Frecuencia = 0.5f; // Frecuencia de la oscilación
-    float RandomFactor = FMath::FRandRange(-20.0f, 20.0f); // Factor aleatorio para variación
-    float AlturaBase = 300.0f; // Altura base para el movimiento de la cometa
-
-    // Calcula las nuevas posiciones en X e Y
-    float NewX = PosicionActual.X - VelocidadBase * DeltaTime;
-    float NewY = PosicionActual.Y + Amplitud * FMath::Sin(TiempoTranscurrido * Frecuencia) + RandomFactor;
-    float NewZ = AlturaBase + Amplitud * FMath::Cos(TiempoTranscurrido * Frecuencia / 2) + RandomFactor;
-
-    // Actualiza el tiempo transcurrido
-    TiempoTranscurrido += DeltaTime;
-
-    // Actualiza la posición del actor
-    SetActorLocation(FVector(NewX, NewY, NewZ));
-
-    // Verifica los límites de la pantalla y ajusta la posición si es necesario
-    if (GetActorLocation().X <= -1800.0f) {
-        SetActorLocation(FVector(1850.0f, NewY, NewZ));
-    }
-    if (GetActorLocation().Y >= 1850) {
-        SetActorLocation(FVector(NewX, -1850.0f, NewZ));
-    }
-    if (GetActorLocation().Y <= -1850) {
-        SetActorLocation(FVector(NewX, 1850.0f, NewZ));
-    }
-    if (GetActorLocation().Z <= 0) {
-        SetActorLocation(FVector(NewX, NewY, AlturaBase));
-    }
-}
-void ANaveTerrestre::Disparo_Nave(float DeltaTime)
+void ANaveTerrestre::RecibirDanio()
 {
-    Tiempo_Disparo += DeltaTime;
-    if (Tiempo_Disparo >= Tiempo_Disparo_Generar)
-    {
-        Tiempo_Disparo = 0.0f;
+	vida -= 25;
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Vida: " + FString::SanitizeFloat(vida)));
+	if (vida <= 0)
+	{
+		Destroy();
+	}
 
-        // Configura la dirección hacia el eje X negativo
-        FVector Direction = FVector(-1.0f, 0.0f, 0.0f);  // Dirección negativa en X
-        FVector SpawnLocation = GetActorLocation() + (Direction * Distancia_D_CB);  // Calcula la nueva ubicación de generación basada en la distancia configurada
-
-        FRotator FireRotation = Direction.Rotation();  // Asegura que la rotación del proyectil coincida con la dirección
-
-        UWorld* const World = GetWorld();
-        if (World)
-        {
-            AProyectilE* Proyectil = World->SpawnActor<AProyectilE>(AProyectilE::StaticClass(), SpawnLocation, FireRotation);
-            if (Proyectil)
-            {
-               // Proyectil->Set_Danio(Danio_Disparo);
-                Proyectil->FireInDiagonal();
-            }
-        }
-    }
-}
-void ANaveTerrestre::SetEstadoTerrestre()
-{
-    if (EstadoTerrestre)
-    {
-        EstadoActual = EstadoTerrestre;
-        EstadoActual->EstadoTerrestre();
-        CurrentState = "Terrestre";
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado cambiado a Terrestre"));
-      
-    }
 }
 
-void ANaveTerrestre::SetEstadoAereo()
+void ANaveTerrestre::Inicializar(float DeltaTime)
 {
-    if (EstadoAereo)
-    {
-        EstadoActual = EstadoAereo;
-        EstadoActual->EstadoAereo();
-        CurrentState = "Aereo";
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado cambiado a Aereo"));
-    }
+	switch (CurrentStateIndex)
+	{
+	case 0:
+		EstadoTerrestre->SetNaveTerrestre(this);
+		EstablecerEstados(EstadoTerrestre);
+		break;
+	case 1:
+		EstadoAereo->SetNaveTerrestre(this);
+		EstablecerEstados(EstadoAereo);
+		break;
+	case 2:
+		EstadoEspacial->SetNaveTerrestre(this);
+		EstablecerEstados(EstadoEspacial);
+		break;
+	}
 }
-void ANaveTerrestre::SetEstadoEspacial()
-{
-    if (EstadoEspacial)
-    {
-        EstadoActual = EstadoEspacial;
-        EstadoActual->EstadoEspacial();
-        //implementamos
 
 
-        CurrentState = "Espacial";
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado cambiado a Espacial"));
-    }
-}
-FString ANaveTerrestre::GetCurrentState() const
+void ANaveTerrestre::EstablecerEstados(IEstado* _Estado)
 {
-    return CurrentState;
+    Estado = _Estado;
+}
+
+void ANaveTerrestre::Mover(float DeltaTime)
+{
+    Estado->Mover(DeltaTime);
+}
+
+void ANaveTerrestre::Disparar()
+{
+    Estado->Disparar();
+}
+
+IEstado* ANaveTerrestre::GetEstado()
+{
+    return Estado;
+}
+
+IEstado* ANaveTerrestre::GetEstadoEspacial()
+{
+    return EstadoEspacial;
+}
+
+IEstado* ANaveTerrestre::GetEstadoAereo()
+{
+    return EstadoAereo;
+}
+
+IEstado* ANaveTerrestre::GetEstadoTerrestre()
+{
+    return EstadoTerrestre;
 }

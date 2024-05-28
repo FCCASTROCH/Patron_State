@@ -20,28 +20,39 @@ protected:
 
 public:
     virtual void Tick(float DeltaTime) override;
-    void Mover(float DeltaTime);
-    void Disparo_Nave(float DeltaTime);
+	//Declaramos las caracteristicas de la nave nodriza
+public:
+	UStaticMeshComponent* NaveNodrizaMesh;
 
-    void SetEstadoTerrestre();
-    void SetEstadoAereo();
-    void SetEstadoEspacial();
+	float vida;
 
-    FString GetCurrentState() const;
+	void RecibirDanio();
 
-private:
-    IEstado* EstadoActual;
-    IEstado* EstadoTerrestre;
-    IEstado* EstadoAereo;
+	//Declaramos todo lo necesario para hacer trabajar los estados de la nave nodriza
+public:
+	//Inicializar los estados de la nave nodriza
+	void Inicializar(float DeltaTime);
 
-    class AEstadoTerrestre* EstadoTerrestre;
-    class AEstadoAereo* EstadoAereo;
-    class AEstadoEspacial* EstadoEspacial;
+	//Declaramos los estados de la nave nodriza
+	IEstado* EstadoAereo;
+	IEstado* EstadoTerrestre;
+	IEstado* EstadoEspacial;
+	IEstado* Estado;
 
-    FString CurrentState;
+	//Funciones para cambiar de estado
+	FORCEINLINE void EstablecerEstados(IEstado* _Estado);
 
+	void Mover(float DeltaTime);
+	void Disparar();
+	float time;
+
+	//Funciones para obtener los estados
+	FORCEINLINE IEstado* GetEstado();
+	FORCEINLINE IEstado* GetEstadoAereo();
+	FORCEINLINE IEstado* GetEstadoEspacial();
+	FORCEINLINE IEstado* GetEstadoTerrestre();
     UPROPERTY(VisibleAnywhere)
-    UStaticMeshComponent* NaveEnemigoMesh;
+    //UStaticMeshComponent* NaveEnemigoMesh;
 
     float Velocidad;
     float Tiempo_Disparo;
@@ -50,5 +61,7 @@ private:
     float Tiempo_Disparo_Generar;
     float Timer;
     float TiempoTranscurrido;
+	float StateChangeInterval;
+	int32 CurrentStateIndex;
 };
 

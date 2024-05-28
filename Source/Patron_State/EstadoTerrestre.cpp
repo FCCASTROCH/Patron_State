@@ -1,82 +1,81 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "EstadoTerrestre.h"
 #include "NaveTerrestre.h"
-#include "Components/StaticMeshComponent.h"
-#include "UObject/ConstructorHelpers.h"
-#include "EstadoTerrestre.h"
-#include "EstadoAereo.h"
-#include "ProyectilE.h"
-#include "Engine/World.h"
-
+#include "Engine/Engine.h"
+// Sets default values
 AEstadoTerrestre::AEstadoTerrestre()
 {
-    PrimaryActorTick.bCanEverTick = true;
-    TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 154);
-    bIsMoving = false;
-    MoveSpeed = 10.0f;
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+
+	TiempoDisparo = 0.5f;
+
+	MoveSpeed = 30.0f;
+	bIsMoving = true;
+
+	TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 174);
 }
 
+// Called when the game starts or when spawned
 void AEstadoTerrestre::BeginPlay()
 {
-    Super::BeginPlay();
+	Super::BeginPlay();
+
 }
 
+// Called every frame
 void AEstadoTerrestre::Tick(float DeltaTime)
 {
-    Super::Tick(DeltaTime);
+	Super::Tick(DeltaTime);
 
-    if (bIsMoving && NaveT)
-    {
-        FVector CurrentLocation = NaveT->GetActorLocation();
-        FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, DeltaTime, MoveSpeed);
-        NaveT->SetActorLocation(NewLocation);
+	if (bIsMoving && NaveT)
+	{
+		FVector CurrentLocation = NaveT->GetActorLocation();
+		FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, DeltaTime, MoveSpeed);
+		NaveT->SetActorLocation(NewLocation);
 
-        if (CurrentLocation.Equals(TargetLocation, 1.0f))
-        {
-            bIsMoving = false;
-        }
-    }
+		if (CurrentLocation.Equals(TargetLocation, 1.0f))
+		{
+			bIsMoving = false;
+		}
+	}
 }
 
-void AEstadoTerrestre::EstadoActual()
+void AEstadoTerrestre::SetNaveTerrestre(ANaveTerrestre* _Nave)
 {
-    UE_LOG(LogTemp, Warning, TEXT("Estado Actual: Terrestre"));
+	NaveT = Cast<ANaveTerrestre>(_Nave);
+	NaveT->EstablecerEstados(NaveT->GetEstadoTerrestre());
 }
-void AEstadoTerrestre::EstadoTerrestre()
+
+void AEstadoTerrestre::Mover(float DeltaTime)
 {
-    if (NaveT)
-    {
-        TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 154);
-        bIsMoving = true;
-    }
+	//// Definimos las variables necesarias
+	//static float TiempoTotal = 0.0f; // Variable estática para acumular el tiempo
+	//const float Radio = 300.0f; // Radio del círculo
+	//const float VelocidadAngular = 1.0f; // Velocidad angular (radianes por segundo)
+
+	//// Actualizamos el tiempo total acumulado
+	//TiempoTotal += DeltaTime * VelocidadAngular;
+
+	//// Calculamos la nueva posición en la circunferencia
+	//float NuevaPosX = Radio * FMath::Cos(TiempoTotal);
+	//float NuevaPosY = Radio * FMath::Sin(TiempoTotal);
+
+	//// Obtenemos la posición actual del objeto
+	//FVector PosicionActual = NaveT->GetActorLocation();
+
+	//// Actualizamos solo las coordenadas X e Y, manteniendo la Z actual
+	//FVector NuevaPosicion = FVector(NuevaPosX, NuevaPosY, PosicionActual.Z);
+
+	//// Establecemos la nueva posición del objeto
+	//NaveT->SetActorLocation(NuevaPosicion);
 }
 
-void AEstadoTerrestre::EstadoAereo()
+void AEstadoTerrestre::Disparar()
 {
-    if (NaveT)
-    {
-        NaveT->SetEstadoAereo();
-      //  UE_LOG(LogTemp, Warning, TEXT("Cambiando al estado aéreo desde el estado terrestre"));
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Cambiando al estado aereo desde el estado terrestre"));
-
-
-    }
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Disparando"));
 }
 
 
-void AEstadoTerrestre::EstadoEspacial()
-{
-    if (NaveT)
-    {
-        NaveT->SetEstadoEspacial();
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Cambiando al estado espacial desde el estado terrestre"));
-        //UE_LOG(LogTemp, Warning, TEXT("Cambiando al estado espacial desde el estado terrestre"));
-    }
-}
-
-void AEstadoTerrestre::setNaveTerrestre(ANaveTerrestre* nave)
-{
-    NaveT = nave;
-}
+//}

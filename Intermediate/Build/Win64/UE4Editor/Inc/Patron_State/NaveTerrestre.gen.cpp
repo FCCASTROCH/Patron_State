@@ -17,7 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 	PATRON_STATE_API UClass* Z_Construct_UClass_ANaveTerrestre();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Patron_State();
-	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
 	void ANaveTerrestre::StaticRegisterNativesANaveTerrestre()
 	{
@@ -33,9 +32,9 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NaveEnemigoMesh_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Velocidad_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_NaveEnemigoMesh;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Velocidad;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -51,15 +50,16 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_NaveEnemigoMesh_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad_MetaData[] = {
 		{ "Category", "NaveTerrestre" },
-		{ "EditInline", "true" },
+		{ "Comment", "//UStaticMeshComponent* NaveEnemigoMesh;\n" },
 		{ "ModuleRelativePath", "NaveTerrestre.h" },
+		{ "ToolTip", "UStaticMeshComponent* NaveEnemigoMesh;" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_NaveEnemigoMesh = { "NaveEnemigoMesh", nullptr, (EPropertyFlags)0x00400000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANaveTerrestre, NaveEnemigoMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_NaveEnemigoMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_NaveEnemigoMesh_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad = { "Velocidad", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANaveTerrestre, Velocidad), METADATA_PARAMS(Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANaveTerrestre_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_NaveEnemigoMesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ANaveTerrestre_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ANaveTerrestre>::IsAbstract,
@@ -88,7 +88,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveTerrestre, 3438375783);
+	IMPLEMENT_CLASS(ANaveTerrestre, 2205891876);
 	template<> PATRON_STATE_API UClass* StaticClass<ANaveTerrestre>()
 	{
 		return ANaveTerrestre::StaticClass();

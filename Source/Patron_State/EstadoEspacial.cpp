@@ -1,34 +1,34 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "EstadoEspacial.h"
 #include "NaveTerrestre.h"
-#include "Components/StaticMeshComponent.h"
-#include "UObject/ConstructorHelpers.h"
-#include "EstadoTerrestre.h"
-#include "EstadoAereo.h"
-#include "ProyectilE.h"
-#include "Engine/World.h"
+
+#include "Engine/Engine.h"
 // Sets default values
 AEstadoEspacial::AEstadoEspacial()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+    // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+    PrimaryActorTick.bCanEverTick = true;
 
+    
+    //bCanFire = true; // Permitir disparos al principio
+    TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 614);
+    bIsMoving = true;
+    TiempoDisparo = 4.0f;
+    MoveSpeed = 40.0f;
 }
 
 // Called when the game starts or when spawned
 void AEstadoEspacial::BeginPlay()
 {
-	Super::BeginPlay();
-	
+    Super::BeginPlay();
+
 }
 
 // Called every frame
 void AEstadoEspacial::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
-
+    Super::Tick(DeltaTime);
     if (bIsMoving && NaveE)
     {
         FVector CurrentLocation = NaveE->GetActorLocation();
@@ -41,42 +41,17 @@ void AEstadoEspacial::Tick(float DeltaTime)
         }
     }
 
-
 }
 
-void AEstadoEspacial::EstadoActual()
+void AEstadoEspacial::SetNaveTerrestre(ANaveTerrestre* _Nave)
 {
-    UE_LOG(LogTemp, Warning, TEXT("Estado Actual: Espacial"));
-
-}
-void AEstadoEspacial::EstadoTerrestre()
-{
-    if (NaveE)
-    {
-        NaveE->SetEstadoTerrestre();
-        UE_LOG(LogTemp, Warning, TEXT("Cambiando al estado terrestre desde el estado espacial"));
-    }
+    NaveE = Cast<ANaveTerrestre>(_Nave);
+    NaveE->EstablecerEstados(NaveE->GetEstadoEspacial());
 }
 
-void AEstadoEspacial::EstadoAereo()
+void AEstadoEspacial::Disparar()
 {
-    if (NaveE)
-    {
-        NaveE->SetEstadoAereo();
-        UE_LOG(LogTemp, Warning, TEXT("Cambiando al estado aéreo desde el estado espacial"));
-    }
+    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Disparando"));
 }
 
-void AEstadoEspacial::EstadoEspacial()
-{
-    if (NaveE)
-    {
-        TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 614);
-        bIsMoving = true;
-    }
-}
-
-void AEstadoEspacial::setNaveTerrestre(ANaveTerrestre* nave)
-{
-    NaveE = nave;
-}
+//}

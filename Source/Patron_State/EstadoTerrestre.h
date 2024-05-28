@@ -23,16 +23,23 @@ protected:
 
 public:
     virtual void Tick(float DeltaTime) override;
-    virtual void EstadoActual() override;
-    virtual void EstadoTerrestre() override;
-    virtual void EstadoEspacial() override;
-    virtual void setNaveTerrestre(ANaveTerrestre* nave) override;
-    virtual void EstadoAereo() override;
+    public:
+	/** Offset from the ships location to spawn projectiles */
+
+
+	float TiempoDisparo;
+
+protected:
+	class ANaveTerrestre* NaveT;
+
+
+public:
+	void SetNaveTerrestre(class ANaveTerrestre* _Nave) override;
+	void Mover(float DeltaTime) override;
+	void Disparar() override;
 
 private:
-    ANaveTerrestre* NaveT;
-    bool bIsMoving;
-    FVector TargetLocation;
-    float MoveSpeed;
+	float MoveSpeed;
+	FVector TargetLocation;
+	bool bIsMoving;
 };
-

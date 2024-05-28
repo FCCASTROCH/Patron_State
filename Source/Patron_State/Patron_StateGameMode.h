@@ -19,7 +19,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	class ANaveTerrestre* NaveTerrestre;
 
-	void AlternarEstados();
+	//void AlternarEstados();
 	FTimerHandle EstadoTimerHandle;
 	bool bEstadoInicial;
 	FTimerHandle EstadoATimerHandle;

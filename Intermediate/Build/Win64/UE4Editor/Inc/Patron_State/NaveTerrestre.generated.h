@@ -58,10 +58,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ANaveTerrestre)
 
 
-#define Patron_State_Source_Patron_State_NaveTerrestre_h_13_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__NaveEnemigoMesh() { return STRUCT_OFFSET(ANaveTerrestre, NaveEnemigoMesh); }
-
-
+#define Patron_State_Source_Patron_State_NaveTerrestre_h_13_PRIVATE_PROPERTY_OFFSET
 #define Patron_State_Source_Patron_State_NaveTerrestre_h_10_PROLOG
 #define Patron_State_Source_Patron_State_NaveTerrestre_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
