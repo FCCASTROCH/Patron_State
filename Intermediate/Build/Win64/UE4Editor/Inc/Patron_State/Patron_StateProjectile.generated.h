@@ -17,18 +17,18 @@ struct FHitResult;
 #endif
 #define PATRON_STATE_Patron_StateProjectile_generated_h
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_SPARSE_DATA
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_RPC_WRAPPERS \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_SPARSE_DATA
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnHit);
 
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnHit);
 
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_INCLASS_NO_PURE_DECLS \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPatron_StateProjectile(); \
 	friend struct Z_Construct_UClass_APatron_StateProjectile_Statics; \
@@ -39,7 +39,7 @@ public: \
 
 
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_INCLASS \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesAPatron_StateProjectile(); \
 	friend struct Z_Construct_UClass_APatron_StateProjectile_Statics; \
@@ -50,7 +50,7 @@ public: \
 
 
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_STANDARD_CONSTRUCTORS \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APatron_StateProjectile(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APatron_StateProjectile) \
@@ -63,7 +63,7 @@ private: \
 public:
 
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_ENHANCED_CONSTRUCTORS \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APatron_StateProjectile(APatron_StateProjectile&&); \
@@ -74,32 +74,32 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APatron_StateProjectile)
 
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_PRIVATE_PROPERTY_OFFSET \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__ProjectileMesh() { return STRUCT_OFFSET(APatron_StateProjectile, ProjectileMesh); } \
 	FORCEINLINE static uint32 __PPO__ProjectileMovement() { return STRUCT_OFFSET(APatron_StateProjectile, ProjectileMovement); }
 
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_12_PROLOG
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_GENERATED_BODY_LEGACY \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_14_PROLOG
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_PRIVATE_PROPERTY_OFFSET \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_SPARSE_DATA \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_RPC_WRAPPERS \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_INCLASS \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_STANDARD_CONSTRUCTORS \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_PRIVATE_PROPERTY_OFFSET \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_SPARSE_DATA \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_RPC_WRAPPERS \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_INCLASS \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_GENERATED_BODY \
+#define Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_PRIVATE_PROPERTY_OFFSET \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_SPARSE_DATA \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_INCLASS_NO_PURE_DECLS \
-	Patron_State_Source_Patron_State_Patron_StateProjectile_h_15_ENHANCED_CONSTRUCTORS \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_PRIVATE_PROPERTY_OFFSET \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_SPARSE_DATA \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_INCLASS_NO_PURE_DECLS \
+	Patron_State_Source_Patron_State_Patron_StateProjectile_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

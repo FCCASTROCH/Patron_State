@@ -17,6 +17,8 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 	PATRON_STATE_API UClass* Z_Construct_UClass_ANaveTerrestre();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Patron_State();
+	PATRON_STATE_API UClass* Z_Construct_UClass_AEscaner_NoRegister();
+	PATRON_STATE_API UClass* Z_Construct_UClass_USubscriptor_NoRegister();
 // End Cross Module References
 	void ANaveTerrestre::StaticRegisterNativesANaveTerrestre()
 	{
@@ -32,10 +34,11 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Velocidad_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Escaner_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Velocidad;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Escaner;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -50,17 +53,18 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad_MetaData[] = {
-		{ "Category", "NaveTerrestre" },
-		{ "Comment", "//UStaticMeshComponent* NaveEnemigoMesh;\n" },
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Escaner_MetaData[] = {
+		{ "Category", "Subscriptor" },
 		{ "ModuleRelativePath", "NaveTerrestre.h" },
-		{ "ToolTip", "UStaticMeshComponent* NaveEnemigoMesh;" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad = { "Velocidad", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANaveTerrestre, Velocidad), METADATA_PARAMS(Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Escaner = { "Escaner", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANaveTerrestre, Escaner), Z_Construct_UClass_AEscaner_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Escaner_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Escaner_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANaveTerrestre_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Velocidad,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANaveTerrestre_Statics::NewProp_Escaner,
 	};
+		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ANaveTerrestre_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_USubscriptor_NoRegister, (int32)VTABLE_OFFSET(ANaveTerrestre, ISubscriptor), false },
+		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ANaveTerrestre_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ANaveTerrestre>::IsAbstract,
 	};
@@ -71,11 +75,11 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 		DependentSingletons,
 		nullptr,
 		Z_Construct_UClass_ANaveTerrestre_Statics::PropPointers,
-		nullptr,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_ANaveTerrestre_Statics::PropPointers),
-		0,
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ANaveTerrestre_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ANaveTerrestre_Statics::Class_MetaDataParams))
 	};
@@ -88,7 +92,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestre() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveTerrestre, 2205891876);
+	IMPLEMENT_CLASS(ANaveTerrestre, 2954977530);
 	template<> PATRON_STATE_API UClass* StaticClass<ANaveTerrestre>()
 	{
 		return ANaveTerrestre::StaticClass();

@@ -40,6 +40,18 @@ void APatron_StateProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherA
 	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
 	}
+	
+	ANaveTerrestreModificado* NaveCaza = Cast<ANaveTerrestreModificado>(OtherActor);
+	if (NaveCaza != nullptr)
+	{
+		NaveCaza->RecibirDanio();
+	}
 
+	ANaveTerrestreEspecial* NaveFugaz = Cast<ANaveTerrestreEspecial>(OtherActor);
+	if (NaveFugaz != nullptr)
+	{
+		NaveFugaz->RecibirDanio();
+	}
 	Destroy();
+
 }

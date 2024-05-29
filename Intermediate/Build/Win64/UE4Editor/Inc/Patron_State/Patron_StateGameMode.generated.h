@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PATRON_STATE_Patron_StateGameMode_generated_h
 
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_SPARSE_DATA
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_RPC_WRAPPERS
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_INCLASS_NO_PURE_DECLS \
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_SPARSE_DATA
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_RPC_WRAPPERS
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPatron_StateGameMode(); \
 	friend struct Z_Construct_UClass_APatron_StateGameMode_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(APatron_StateGameMode)
 
 
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_INCLASS \
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesAPatron_StateGameMode(); \
 	friend struct Z_Construct_UClass_APatron_StateGameMode_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(APatron_StateGameMode)
 
 
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_STANDARD_CONSTRUCTORS \
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	PATRON_STATE_API APatron_StateGameMode(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APatron_StateGameMode) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_ENHANCED_CONSTRUCTORS \
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	PATRON_STATE_API APatron_StateGameMode(APatron_StateGameMode&&); \
@@ -58,28 +58,28 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APatron_StateGameMode)
 
 
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_PRIVATE_PROPERTY_OFFSET
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_9_PROLOG
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_GENERATED_BODY_LEGACY \
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_PRIVATE_PROPERTY_OFFSET
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_PROLOG
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_PRIVATE_PROPERTY_OFFSET \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_SPARSE_DATA \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_RPC_WRAPPERS \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_INCLASS \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_STANDARD_CONSTRUCTORS \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_PRIVATE_PROPERTY_OFFSET \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_SPARSE_DATA \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_RPC_WRAPPERS \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_INCLASS \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_GENERATED_BODY \
+#define Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_PRIVATE_PROPERTY_OFFSET \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_SPARSE_DATA \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_INCLASS_NO_PURE_DECLS \
-	Patron_State_Source_Patron_State_Patron_StateGameMode_h_12_ENHANCED_CONSTRUCTORS \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_PRIVATE_PROPERTY_OFFSET \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_SPARSE_DATA \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_INCLASS_NO_PURE_DECLS \
+	Patron_State_Source_Patron_State_Patron_StateGameMode_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

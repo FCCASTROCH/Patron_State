@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Patron_State.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{EF623CE0-F56E-4A6C-8025-ABF9D3276F58}</UniqueIdentifier>
+      <UniqueIdentifier>{3CD1063F-86E5-4B9A-AF9B-9015C04C3648}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Patron_State.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,10 @@
     <None Include="..\..\Source\Patron_StateEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{E5E48013-8E01-4E3D-80E1-4943E4C94695}</UniqueIdentifier>
+      <UniqueIdentifier>{3010A94D-13B6-482C-8D1D-0BB509B08297}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,8 +32,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Patron_State">
-      <UniqueIdentifier>{91A48AE1-D8B8-41C8-8905-1DC1F76A4206}</UniqueIdentifier>
+      <UniqueIdentifier>{91D943D8-7FCF-410E-A28D-A5A67D371128}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Patron_State\Escaner.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\Escaner.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Patron_State\Estado.cpp">
       <Filter>Source\Patron_State</Filter>
     </ClCompile>
@@ -60,6 +68,18 @@
       <Filter>Source\Patron_State</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Patron_State\NaveTerrestre.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\NaveTerrestreEspecial.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\NaveTerrestreEspecial.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\NaveTerrestreModificado.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\NaveTerrestreModificado.h">
       <Filter>Source\Patron_State</Filter>
     </ClInclude>
     <None Include="..\..\Source\Patron_State\Patron_State.Build.cs">
@@ -93,6 +113,18 @@
       <Filter>Source\Patron_State</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Patron_State\ProyectilE.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\Publicador.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\Publicador.h">
+      <Filter>Source\Patron_State</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Patron_State\Subscriptor.cpp">
+      <Filter>Source\Patron_State</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Patron_State\Subscriptor.h">
       <Filter>Source\Patron_State</Filter>
     </ClInclude>
   </ItemGroup>

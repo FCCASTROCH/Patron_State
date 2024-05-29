@@ -46,7 +46,7 @@ void AEstadoEspacial::Tick(float DeltaTime)
 void AEstadoEspacial::SetNaveTerrestre(ANaveTerrestre* _Nave)
 {
     NaveE = Cast<ANaveTerrestre>(_Nave);
-    NaveE->EstablecerEstados(NaveE->GetEstadoEspacial());
+  /*  NaveE->EstablecerEstados(NaveE->GetEstadoEspacial());*/
 }
 
 void AEstadoEspacial::Disparar()

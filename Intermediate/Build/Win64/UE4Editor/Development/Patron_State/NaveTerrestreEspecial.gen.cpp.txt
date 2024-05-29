@@ -1,0 +1,11 @@
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Definitions.Patron_State.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State/NaveTerrestreEspecial.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestre.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Estado.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Estado.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Subscriptor.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Subscriptor.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestre.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestreEspecial.generated.h

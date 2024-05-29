@@ -5,53 +5,54 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Estado.h"
+#include "Subscriptor.h"
+//#include "Escaner.h"
 #include "NaveTerrestre.generated.h"
+class AEscaner;
 
 UCLASS()
-class PATRON_STATE_API ANaveTerrestre : public AActor
+class PATRON_STATE_API ANaveTerrestre : public AActor,public ISubscriptor
 {
     GENERATED_BODY()
 
 public:
     ANaveTerrestre();
 
-protected:
     virtual void BeginPlay() override;
 
-public:
     virtual void Tick(float DeltaTime) override;
 	//Declaramos las caracteristicas de la nave nodriza
 public:
-	UStaticMeshComponent* NaveNodrizaMesh;
+	UStaticMeshComponent* NaveTrestreP;
 
-	float vida;
+	/*float vida;
 
-	void RecibirDanio();
+	void RecibirDanioN();*/
 
 	//Declaramos todo lo necesario para hacer trabajar los estados de la nave nodriza
 public:
 	//Inicializar los estados de la nave nodriza
-	void Inicializar(float DeltaTime);
+	/*void Inicializar();*/
 
 	//Declaramos los estados de la nave nodriza
-	IEstado* EstadoAereo;
-	IEstado* EstadoTerrestre;
-	IEstado* EstadoEspacial;
-	IEstado* Estado;
+	//IEstado* EstadoAereo;
+	//IEstado* EstadoTerrestre;
+	//IEstado* EstadoEspacial;
+	//IEstado* Estado;
 
 	//Funciones para cambiar de estado
-	FORCEINLINE void EstablecerEstados(IEstado* _Estado);
+	//FORCEINLINE void EstablecerEstados(IEstado* _Estado);
 
-	void Mover(float DeltaTime);
-	void Disparar();
-	float time;
+	////void MoverN(float DeltaTime);
+	//void Disparar();
+	//float time;
 
-	//Funciones para obtener los estados
-	FORCEINLINE IEstado* GetEstado();
-	FORCEINLINE IEstado* GetEstadoAereo();
-	FORCEINLINE IEstado* GetEstadoEspacial();
-	FORCEINLINE IEstado* GetEstadoTerrestre();
-    UPROPERTY(VisibleAnywhere)
+	////Funciones para obtener los estados
+	//FORCEINLINE IEstado* GetEstado();
+	//FORCEINLINE IEstado* GetEstadoAereo();
+	//FORCEINLINE IEstado* GetEstadoEspacial();
+	//FORCEINLINE IEstado* GetEstadoTerrestre();
+ //   UPROPERTY(VisibleAnywhere)
     //UStaticMeshComponent* NaveEnemigoMesh;
 
     float Velocidad;
@@ -63,5 +64,31 @@ public:
     float TiempoTranscurrido;
 	float StateChangeInterval;
 	int32 CurrentStateIndex;
+
+
+	int velocidad;
+	float Vida;
+	bool Escape;
+	FVector PosicionInicial;
+	bool retorno;
+	//float TiempoTranscurrido;
+
+	class APatron_StateGameMode* GameMode;
+
+	UPROPERTY(VisibleAnywhere, Category = "Subscriptor")
+	class AEscaner* Escaner;
+
+public:
+	void EstablecerRadar(class AEscaner* _Radar);
+	void Actualizar() override;//
+	void Escapar();
+	void QuitarSuscripcion();
+	void Huir(float DeltaTime);
+
+	virtual void Mover(float DeltaTime) PURE_VIRTUAL(ANaveTerrestre::Mover, );
+	virtual void Disparar(FVector FireDiretion) PURE_VIRTUAL(ANaveTerrestre::Disparar, );
+	virtual void RecibirDanio() PURE_VIRTUAL(ANaveTerrestre::RecibirDanio, );
+	virtual void Curarse() PURE_VIRTUAL(ANaveTerrestre::Curarse, );
+
 };
 

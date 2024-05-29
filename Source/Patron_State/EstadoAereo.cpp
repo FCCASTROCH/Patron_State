@@ -39,8 +39,8 @@ void AEstadoAereo::Tick(float DeltaTime)
 
 void AEstadoAereo::SetNaveTerrestre(ANaveTerrestre* _NaveNodriza)
 {
-	NaveA = Cast<ANaveTerrestre>(_NaveNodriza);
-	NaveA->EstablecerEstados(NaveA->GetEstadoAereo());
+	//NaveA = Cast<ANaveTerrestre>(_NaveNodriza);
+	//NaveA->EstablecerEstados(NaveA->GetEstadoAereo());
 }
 
 void AEstadoAereo::Mover(float DeltaTime)

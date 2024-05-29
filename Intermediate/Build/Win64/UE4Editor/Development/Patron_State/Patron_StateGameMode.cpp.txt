@@ -4,6 +4,16 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFra
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestre.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Estado.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Estado.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Subscriptor.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Subscriptor.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestre.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestreEspecial.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestreEspecial.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestreModificado.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestreModificado.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Patron_StateGameMode.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Patron_StatePawn.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
@@ -13,13 +23,13 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFra
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Patron_StatePawn.generated.h
-C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestre.h
-C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Estado.h
-C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Estado.generated.h
-C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestre.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\EstadoTerrestre.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\EstadoTerrestre.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\EstadoAereo.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\EstadoAereo.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\EstadoEspacial.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\EstadoEspacial.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Escaner.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Publicador.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Publicador.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Escaner.generated.h

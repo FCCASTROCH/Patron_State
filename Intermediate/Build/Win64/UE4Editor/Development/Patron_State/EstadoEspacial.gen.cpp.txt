@@ -5,5 +5,7 @@ C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State/EstadoEsp
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Estado.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Estado.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestre.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Subscriptor.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Subscriptor.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestre.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\EstadoEspacial.generated.h

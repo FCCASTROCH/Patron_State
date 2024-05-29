@@ -11,10 +11,10 @@ AEstadoTerrestre::AEstadoTerrestre()
 
 	TiempoDisparo = 0.5f;
 
-	MoveSpeed = 30.0f;
+	MoveSpeed = 60.0f;
 	bIsMoving = true;
 
-	TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 174);
+	TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 194.0f);
 }
 
 // Called when the game starts or when spawned
@@ -45,7 +45,7 @@ void AEstadoTerrestre::Tick(float DeltaTime)
 void AEstadoTerrestre::SetNaveTerrestre(ANaveTerrestre* _Nave)
 {
 	NaveT = Cast<ANaveTerrestre>(_Nave);
-	NaveT->EstablecerEstados(NaveT->GetEstadoTerrestre());
+	//NaveT->EstablecerEstados(NaveT->GetEstadoTerrestre());
 }
 
 void AEstadoTerrestre::Mover(float DeltaTime)

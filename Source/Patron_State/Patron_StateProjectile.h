@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "NaveTerrestreEspecial.h"
+#include "NaveTerrestreModificado.h"
 #include "Patron_StateProjectile.generated.h"
 
 class UProjectileMovementComponent;
