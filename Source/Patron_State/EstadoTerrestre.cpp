@@ -3,79 +3,89 @@
 #include "EstadoTerrestre.h"
 #include "NaveTerrestre.h"
 #include "Engine/Engine.h"
-// Sets default values
 AEstadoTerrestre::AEstadoTerrestre()
 {
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
-	TiempoDisparo = 0.5f;
-
-	MoveSpeed = 60.0f;
-	bIsMoving = true;
-
-	TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, 194.0f);
+    // Establecer el tick para este actor
+    PrimaryActorTick.bCanEverTick = true;
 }
 
-// Called when the game starts or when spawned
 void AEstadoTerrestre::BeginPlay()
 {
-	Super::BeginPlay();
+    Super::BeginPlay();
+    DireccionMovimiento = FVector(1.0f, 0.0f, 0.0f);
+    DistanciaRecorrida = 0.0f;
+    LongitudLadoCuadrado = 300.0f;
+    VelocidadMovimiento = 100.0f;
 
 }
 
-// Called every frame
 void AEstadoTerrestre::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
+    Super::Tick(DeltaTime);
 
-	if (bIsMoving && NaveT)
-	{
-		FVector CurrentLocation = NaveT->GetActorLocation();
-		FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, DeltaTime, MoveSpeed);
-		NaveT->SetActorLocation(NewLocation);
-
-		if (CurrentLocation.Equals(TargetLocation, 1.0f))
-		{
-			bIsMoving = false;
-		}
-	}
+   
 }
 
 void AEstadoTerrestre::SetNaveTerrestre(ANaveTerrestre* _Nave)
 {
-	NaveT = Cast<ANaveTerrestre>(_Nave);
+    NaveT = Cast<ANaveTerrestre>(_Nave);
 	//NaveT->EstablecerEstados(NaveT->GetEstadoTerrestre());
+	//NaveT->Set
 }
 
-void AEstadoTerrestre::Mover(float DeltaTime)
+void AEstadoTerrestre::Conducir()
 {
-	//// Definimos las variables necesarias
-	//static float TiempoTotal = 0.0f; // Variable estática para acumular el tiempo
-	//const float Radio = 300.0f; // Radio del círculo
-	//const float VelocidadAngular = 1.0f; // Velocidad angular (radianes por segundo)
+	if (NaveT->GetActorLocation().Z > 214.0f)
+	{
+		NaveT->SetActorLocation(FVector(NaveT->GetActorLocation().X, NaveT->GetActorLocation().Y, NaveT->GetActorLocation().Z - 1));
+		return;
+	}
+	// Actualiza la posición del vehículo
+	FVector NuevaPosicion = NaveT->GetActorLocation() + (DireccionMovimiento * VelocidadMovimiento * GetWorld()->GetDeltaSeconds());
+	NaveT->SetActorLocation(NuevaPosicion);
 
-	//// Actualizamos el tiempo total acumulado
-	//TiempoTotal += DeltaTime * VelocidadAngular;
+	DistanciaRecorrida += (DireccionMovimiento * VelocidadMovimiento * GetWorld()->GetDeltaSeconds()).Size();
 
-	//// Calculamos la nueva posición en la circunferencia
-	//float NuevaPosX = Radio * FMath::Cos(TiempoTotal);
-	//float NuevaPosY = Radio * FMath::Sin(TiempoTotal);
+	// Cambia de dirección cuando se alcanza la longitud del lado del cuadrado
+	if (DistanciaRecorrida >= LongitudLadoCuadrado)
+	{
+		DistanciaRecorrida = 0.0f;
+		// Cambia la dirección del movimiento en sentido horario
+		if (DireccionMovimiento == FVector(1.0f, 0.0f, 0.0f))
+		{
+			DireccionMovimiento = FVector(0.0f, 1.0f, 0.0f); // Mueve hacia adelante en el eje Y
+		}
+		else if (DireccionMovimiento == FVector(0.0f, 1.0f, 0.0f))
+		{
+			DireccionMovimiento = FVector(-1.0f, 0.0f, 0.0f); // Mueve hacia atrás en el eje X
+		}
+		else if (DireccionMovimiento == FVector(-1.0f, 0.0f, 0.0f))
+		{
+			DireccionMovimiento = FVector(0.0f, -1.0f, 0.0f); // Mueve hacia atrás en el eje Y
+		}
+		else if (DireccionMovimiento == FVector(0.0f, -1.0f, 0.0f))
+		{
+			DireccionMovimiento = FVector(1.0f, 0.0f, 0.0f); // Mueve hacia adelante en el eje X
+		}
+	}
+	NaveT->SetActorRotation(DireccionMovimiento.Rotation());
+	if (NaveT->TiempoTranscurrido >= 10.0f)
+	{
+		NaveT->EstablecerEstados(NaveT->GetEstadoAereo());
+		NaveT->TiempoTranscurrido = 0.0f;
+	}
 
-	//// Obtenemos la posición actual del objeto
-	//FVector PosicionActual = NaveT->GetActorLocation();
-
-	//// Actualizamos solo las coordenadas X e Y, manteniendo la Z actual
-	//FVector NuevaPosicion = FVector(NuevaPosX, NuevaPosY, PosicionActual.Z);
-
-	//// Establecemos la nueva posición del objeto
-	//NaveT->SetActorLocation(NuevaPosicion);
+	
 }
 
 void AEstadoTerrestre::Disparar()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Disparando"));
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Disparando terresrtre"));
+}
+
+FString AEstadoTerrestre::Estado()
+{
+    return "Estado Terrestre";
 }
 
 
-//}

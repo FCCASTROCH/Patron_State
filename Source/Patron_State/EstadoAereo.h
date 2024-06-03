@@ -22,16 +22,39 @@ protected:
 public:
     virtual void Tick(float DeltaTime) override;
 protected:
-	class ANaveTerrestre* NaveA;
-
-	float velocidad;
-public:
-	void SetNaveTerrestre(class ANaveTerrestre* _NaveTerrestre) override;
-	void Mover(float DeltaTime) override;
-
+	class ANaveTerrestre* NaveAe;
 private:
-	void Disparar() override {};
-	FVector TargetLocation;
-	bool bIsMoving ;
-	float MoveSpeed;
+	TArray<FVector> VerticesTriangulo;
+	//IInventarioAFactory* inventarioFactory;
+	int VerticeActual;
+	FVector DireccionMovimiento;
+	float DistanciaRecorrida;
+	float VelocidadMovimiento;
+
+public:
+	
+
+	virtual void SetNaveTerrestre(class ANaveTerrestre* Terrestre) override;
+
+	virtual void Conducir() override {};
+
+	virtual void Volar() override;
+
+	virtual void Navegar() override {};
+	//Disparar acorde a disparar de formas diferentes
+	virtual void Disparar()override;
+	//para establecer estados
+	virtual FString Estado()override;
+	void ShotTimerExpired();
+	/** Offset from the ships location to spawn projectiles */
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+	FVector GunOffset;
+
+	/* Flag to control firing  */
+	uint32 bCanFire : 1;
+
+	/** Handle for efficient management of ShotTimerExpired timer */
+	FTimerHandle TimerHandle_ShotTimerExpired;
+
+	float TiempoDisparo;
 };

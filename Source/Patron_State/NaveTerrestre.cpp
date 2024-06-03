@@ -12,20 +12,16 @@
 #include "Engine/World.h"
 #include "Escaner.h"
 #include "Patron_StateGameMode.h"
-//#include  "APatron_State.h"
 
 ANaveTerrestre::ANaveTerrestre()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	//vida = 200;
-	//time = 0.0f;
-	//vida = 200;
-	//time = 0.0f;
-	StateChangeInterval = 10.0f;
-	CurrentStateIndex = 0;
-	Escape = false;
-	retorno = false;
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
+	NaveTrestreP = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
+	NaveTrestreP->SetStaticMesh(ShipMesh.Object);
+	RootComponent = NaveTrestreP;
+	TiempoTranscurrido = 0.0f;
 
 }
 
@@ -33,139 +29,122 @@ ANaveTerrestre::ANaveTerrestre()
 void ANaveTerrestre::BeginPlay()
 {
 	Super::BeginPlay();
-
-	/*EstadoAereo = GetWorld()->SpawnActor<AEstadoAereo>(AEstadoAereo::StaticClass());
-	EstadoTerrestre = GetWorld()->SpawnActor<AEstadoTerrestre>(	AEstadoTerrestre::StaticClass());
+	EstadoTerrestre = GetWorld()->SpawnActor<AEstadoTerrestre>(AEstadoTerrestre::StaticClass());
+	EstadoAereo = GetWorld()->SpawnActor<AEstadoAereo>(AEstadoAereo::StaticClass());
 	EstadoEspacial = GetWorld()->SpawnActor<AEstadoEspacial>(AEstadoEspacial::StaticClass());
-	Inicializar();
-	*/}
+
+	Estado = EstadoTerrestre;
+	inicializar();
+}
 
 // Called every frame
 void ANaveTerrestre::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	//Disparar();
-	///MoverN(DeltaTime);
-	Huir(DeltaTime);
-
-	
+	TiempoTranscurrido += DeltaTime;
 }
-//
-//void ANaveTerrestre::RecibirDanioN()
+
+void ANaveTerrestre::inicializar()
+{
+		//EstadoTerrestre = GetWorld()->SpawnActor<AEstadoTerrestre>(AEstadoTerrestre::StaticClass());
+		EstadoTerrestre->SetNaveTerrestre(this);
+		EstablecerEstados(EstadoTerrestre);
+	
+	//EstadoAereo = GetWorld()->SpawnActor<AEstadoAereo>(AEstadoAereo::StaticClass());
+	EstadoAereo->SetNaveTerrestre(this);
+	EstablecerEstados(EstadoAereo);
+    
+	//	EstadoEspacial = GetWorld()->SpawnActor<AEstadoEspacial>(AEstadoEspacial::StaticClass());
+		EstadoEspacial->SetNaveTerrestre(this);
+		EstablecerEstados(EstadoEspacial);
+	
+		
+	//Estado = EstadoTerrestre;
+}
+
+void ANaveTerrestre::Manejar()
+{
+	Estado->Conducir();
+}
+
+void ANaveTerrestre::Volar()
+{
+	Estado->Volar();
+}
+
+void ANaveTerrestre::Navegar()
+{
+	Estado->Navegar();
+}
+
+void ANaveTerrestre::Disparar()
+{
+	Estado->Disparar();
+}
+//talves se borre sustituya a setestado
+void ANaveTerrestre::EstablecerEstados(IEstado* _Estado)
+{
+	Estado = _Estado;
+	if (Estado == EstadoTerrestre)
+	{
+
+	NaveTrestreP->SetWorldScale3D(FVector(1.0f, 1.0f, 1.0f));
+	}
+	else if (Estado == EstadoAereo)
+	{
+		NaveTrestreP->SetWorldScale3D(FVector(1.5f, 1.5f, 1.5f));
+	}
+	else if (Estado == EstadoEspacial)
+	{
+		NaveTrestreP->SetWorldScale3D(FVector(2.0f, 2.0f, 2.0f));
+	}
+}
+
+
+IEstado* ANaveTerrestre::GetEstado()
+{
+	return Estado;
+}
+
+IEstado* ANaveTerrestre::GetEstadoEspacial()
+{
+	return EstadoEspacial;
+}
+
+IEstado* ANaveTerrestre::GetEstadoAereo()
+{
+	return EstadoAereo;
+}
+
+IEstado* ANaveTerrestre::GetEstadoTerrestre()
+{
+	return EstadoTerrestre;
+}
+
+FString ANaveTerrestre::ObtenerEstadoActual()
+{
+	return Estado ? Estado->Estado() : "Estado no inicializado";
+
+}
+
+
+//void ANaveTerrestre::DisminuirVida(float Cantidad)
 //{
-//	vida -= 25;
-//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Vida: " + FString::SanitizeFloat(vida)));
-//	if (vida <= 0)
+//	Vida -= Cantidad;
+//
+//	if (Vida <= 0.f)
 //	{
 //		Destroy();
 //	}
-//
-//}
-//
-//void ANaveTerrestre::Inicializar()
-//{
-//	switch (CurrentStateIndex)
-//	{
-//	case 0:
-//		EstadoTerrestre->SetNaveTerrestre(this);
-//		EstablecerEstados(EstadoTerrestre);
-//		break;
-//	case 1:
-//		EstadoAereo->SetNaveTerrestre(this);
-//		EstablecerEstados(EstadoAereo);
-//		break;
-//	case 2:
-//		EstadoEspacial->SetNaveTerrestre(this);
-//		EstablecerEstados(EstadoEspacial);
-//		break;
-//	}
-//}
-//
-//
-//void ANaveTerrestre::EstablecerEstados(IEstado* _Estado)
-//{
-//    Estado = _Estado;
-//}
-//
-////void ANaveTerrestre::MoverN(float DeltaTime)
-////{
-////   // Estado->Mover(DeltaTime);
-////}
-//
-//void ANaveTerrestre::Disparar()
-//{
-//    //Estado->Disparar();
-//}
-//IEstado* ANaveTerrestre::GetEstado()
-//{
-//    return Estado;
-//}
-//
-//IEstado* ANaveTerrestre::GetEstadoEspacial()
-//{
-//    return EstadoEspacial;
-//}
-//
-//IEstado* ANaveTerrestre::GetEstadoAereo()
-//{
-//    return EstadoAereo;
-//}
-//
-//IEstado* ANaveTerrestre::GetEstadoTerrestre()
-//{
-//    return EstadoTerrestre;
-//}
-void ANaveTerrestre::EstablecerRadar(AEscaner* _Radar)
+FVector ANaveTerrestre::GetSafeActorLocation() const
 {
-	if (!_Radar)
+	if (RootComponent)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("No se ha encontrado el radar"));
-		return;
+		return RootComponent->GetComponentLocation();
 	}
-
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("radar en naveenemigo"));
-	Escaner = _Radar;
-	Escaner->Suscribirse(this);
-}
-
-void ANaveTerrestre::Actualizar()
-{
-	Escapar();
-
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Actualizar Escapar"));
-}
-
-void ANaveTerrestre::Escapar()
-{
-	float VidaRecivida = Escaner->GetVidaPromedio();
-	if (VidaRecivida <= 10)
+	else
 	{
-		Escape = true;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Escape true"));
+		// Devuelve una ubicación predeterminada si RootComponent es nulo
+		return FVector::ZeroVector;
 	}
-}
-
-void ANaveTerrestre::QuitarSuscripcion()
-{
-	if (Escaner)
-	{
-		Escaner->Desuscribirse(this);
-	}
-
-}
-
-void ANaveTerrestre::Huir(float DeltaTime)
-{
-	if (Escape == true)
-	{
-		SetActorLocation(FMath::VInterpTo(GetActorLocation(), FVector(1700.0f, -147.0f, 215.0f), DeltaTime, 0.5));
-		Curarse();
-	}
-	if (GetActorLocation().Equals(FVector(1700.0f, -147.0f, 215.0f), 200))
-	{
-		Escape = false;
-		retorno = true;
-	}
-
 }

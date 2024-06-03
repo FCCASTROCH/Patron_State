@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestreModificado() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveTerrestreModificado, 1921261971);
+	IMPLEMENT_CLASS(ANaveTerrestreModificado, 1778562743);
 	template<> PATRON_STATE_API UClass* StaticClass<ANaveTerrestreModificado>()
 	{
 		return ANaveTerrestreModificado::StaticClass();

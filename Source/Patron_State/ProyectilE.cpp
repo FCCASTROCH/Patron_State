@@ -2,70 +2,79 @@
 
 
 #include "ProyectilE.h"
-#include "UObject/ConstructorHelpers.h"
+#include "Patron_StateProjectile.h"
 #include "Components/StaticMeshComponent.h"
-#include "Components/CapsuleComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Engine/StaticMesh.h"
+#include "Patron_StatePawn.h"
+
 // Sets default values
 AProyectilE::AProyectilE()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-    // Creando la malla del proyectil
-    Projectil_Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectil_Mesh"));
-    RootComponent = Projectil_Mesh;
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> BombMeshAsset(TEXT("/Game/TwinStick/Meshes/TwinStickProjectile.TwinStickProjectile"));
+	BombMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BombMesh"));
+	BombMesh->SetStaticMesh(BombMeshAsset.Object);
+	//BombMesh->SetupAttachment(RootComponent);
+	RootComponent = BombMesh;
 
-    static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
-    if (MeshAsset.Succeeded())
-    {
-        Projectil_Mesh->SetStaticMesh(MeshAsset.Object);
-
-        //// Modificar la escala del componente de malla
-        FVector NewScale(0.5f, 0.5f, 0.5f); // Escala modificada
-        Projectil_Mesh->SetWorldScale3D(NewScale);
-    }
-    // Controlando el movimiento del proyectil
-    Projectil_Movement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectil_Movement"));
-    Projectil_Movement->InitialSpeed = 750.0f;
-    Projectil_Movement->MaxSpeed = 850.0f;
-    Projectil_Movement->bRotationFollowsVelocity = true;
-    Projectil_Movement->bShouldBounce = false;
-    Projectil_Movement->ProjectileGravityScale = 0.0f;
-
-    // Creando el componente de colisión del proyectil
-    Projectil_Collision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Projectil_Collision"));
-    Projectil_Collision->SetupAttachment(RootComponent);
-
-    // Estableciendo el tiempo de vida inicial del proyectil
-    InitialLifeSpan = 5.f;
-
-    // Daño predeterminado del proyectil
-    DanioProvocado = 0.f;
-    //Configurando el proyectil para que genere eventos de colision
-    Projectil_Collision->SetCapsuleHalfHeight(160.0f);
-    Projectil_Collision->SetCapsuleRadius(160.0f);
-
+	//tamano de la bomba
+	BombMesh->SetRelativeScale3D(FVector(3.0f, 3.0f, 3.0f));
+	bInitialized = false;
+	velocidad = 600.0f;
 }
 
 // Called when the game starts or when spawned
 void AProyectilE::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
 void AProyectilE::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	Mover(DeltaTime);
 }
-void AProyectilE::FireInDiagonal()
+
+void AProyectilE::Mover(float DeltaTime)
 {
-    if (Projectil_Movement)
-    {
-        // Establecer la velocidad inicial para moverse diagonalmente hacia arriba
-        FVector DiagonalVelocity = FVector(1.0f, 0.0f, 0.5f).GetSafeNormal() * Projectil_Movement->InitialSpeed;
-        Projectil_Movement->Velocity = DiagonalVelocity;
-    }
+	if (!bInitialized)
+	{
+		FVector StartLocation = GetActorLocation();
+		FVector EndLocation = UltimaPosicionJugador;
+
+		// Ajustar la altura en Z para mantenerla constante
+		StartLocation.Z = 250.0f;
+		EndLocation.Z = 250.0f;
+
+		// Calcular la dirección normalizada desde el cañón hasta el jugador
+		Direction = (EndLocation - StartLocation).GetSafeNormal();
+		bInitialized = true;
+	}
+
+	// Mover el proyectil en línea recta hacia el jugador manteniendo constante la altura en Z
+	FVector NewLocation = GetActorLocation() + Direction * velocidad * DeltaTime;
+	NewLocation.Z = 250.0f; // mantener constante la altura en Z
+
+	SetActorLocation(NewLocation);
+}
+
+void AProyectilE::SetUltimaPosicionJugador(FVector Posicion)
+{
+	UltimaPosicionJugador = Posicion;
+}
+
+void AProyectilE::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+{
+	Pawn = Cast<APatron_StatePawn>(OtherActor);
+	if (Pawn)
+	{
+		//Pawn->RecibirDanio();
+		//Destroy();
+	}
 }
 

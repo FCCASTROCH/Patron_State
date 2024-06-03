@@ -3,7 +3,26 @@ C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\EstadoEsp
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Estado.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Estado.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestre.h
-C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Subscriptor.h
-C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Subscriptor.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestre.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\EstadoEspacial.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\ProyectilE.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/ProjectileMovementComponent.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/MovementComponent.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MovementComponent.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ProjectileMovementComponent.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\ProyectilE.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Patron_StateProjectile.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestreEspecial.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestreEspecial.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveTerrestreModificado.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveTerrestreModificado.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Patron_StateProjectile.generated.h

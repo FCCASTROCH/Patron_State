@@ -20,20 +20,7 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-public:
-	uint32 bCanFire : 1;
-
-	FVector GunOffset;
-
-	float FireRate;
-
-	FTimerHandle TimerHandle_ShotTimerExpired;
-
-	void ShotTimerExpired();
 
 public:
-	void Mover(float DeltaTime) override;
-	void Disparar(FVector FireDirection) override;
-	void RecibirDanio() override;
-	void Curarse() override;
+	
 };

@@ -15,7 +15,6 @@ class PATRON_STATE_API AEscaner : public APublicador
 	GENERATED_BODY()
 public:
 	AEscaner();
-
 protected:
 	virtual void BeginPlay() override;
 

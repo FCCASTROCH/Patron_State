@@ -17,27 +17,20 @@ class PATRON_STATE_API ANaveTerrestreEspecial : public ANaveTerrestre
 public:
 	ANaveTerrestreEspecial();
 	protected:
-		virtual void BeginPlay() override;
+
+	virtual void BeginPlay() override;
 		
 public:
 	virtual void Tick(float DeltaTime) override;
-	uint32 bCanFire : 1;
-
-	FVector GunOffset;
-
-	float FireRate;
-
-	FTimerHandle TimerHandle_ShotTimerExpired;
-
-	void ShotTimerExpired();
+	
+public:
+	
+	//void RepararNave() override;
+	
 
 public:
-	void Mover(float DeltaTime) ;
-	void Disparar(FVector FireDirection) ;
-	void RecibirDanio() ;
-	void Curarse() ;
-
-
-
-
+	//void Mover(float DeltaTime) override;
+	//void Disparar(FVector FireDirection) override;
+	//void RecibirDanio() override;
+	
 };

@@ -31,6 +31,7 @@ APatron_StateProjectile::APatron_StateProjectile()
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
+	danio = 10;
 }
 
 void APatron_StateProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -41,17 +42,16 @@ void APatron_StateProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherA
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
 	}
 	
-	ANaveTerrestreModificado* NaveCaza = Cast<ANaveTerrestreModificado>(OtherActor);
-	if (NaveCaza != nullptr)
-	{
-		NaveCaza->RecibirDanio();
-	}
+	ANaveTerrestre* NaveEnemigo = Cast<ANaveTerrestre>(OtherActor);
+	//AEscudo* Escudo = Cast<AEscudo>(OtherActor);
+	//if (NaveEnemigo)
+	//{
+	//	NaveEnemigo->DisminuirVida(danio); // Disminuir la vida de la nave enemiga
+	//}
+	//if (Escudo)
+	//{
+	//	//Escudo->DisminuirResistencia(danio); // Disminuir la resistencia del escudo
+	//}
 
-	ANaveTerrestreEspecial* NaveFugaz = Cast<ANaveTerrestreEspecial>(OtherActor);
-	if (NaveFugaz != nullptr)
-	{
-		NaveFugaz->RecibirDanio();
-	}
-	Destroy();
 
 }

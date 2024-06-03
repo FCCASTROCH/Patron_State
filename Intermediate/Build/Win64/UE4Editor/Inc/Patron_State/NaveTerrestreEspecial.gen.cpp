@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveTerrestreEspecial() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveTerrestreEspecial, 3307740469);
+	IMPLEMENT_CLASS(ANaveTerrestreEspecial, 2202741380);
 	template<> PATRON_STATE_API UClass* StaticClass<ANaveTerrestreEspecial>()
 	{
 		return ANaveTerrestreEspecial::StaticClass();

@@ -1,0 +1,41 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-Patron_State-8163.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\Patron_StateEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Escaner.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Estado.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\EstadoAereo.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\EstadoEspacial.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\EstadoTerrestre.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\NaveTerrestre.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\NaveTerrestreEspecial.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\NaveTerrestreModificado.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Patron_State.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Patron_StateGameMode.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Patron_StatePawn.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Patron_StateProjectile.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\ProyectilE.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Publicador.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Subscriptor.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Escaner.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Estado.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\EstadoAereo.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\EstadoEspacial.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\EstadoTerrestre.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\NaveTerrestre.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\NaveTerrestreEspecial.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\NaveTerrestreModificado.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Patron_State.init.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Patron_StateGameMode.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Patron_StatePawn.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Patron_StateProjectile.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\ProyectilE.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Publicador.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Subscriptor.gen.cpp.obj"
+"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Default.rc2.res"
+/OUT:"C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\UE4Editor-Patron_State-8163.lib"

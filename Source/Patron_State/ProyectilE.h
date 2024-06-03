@@ -20,27 +20,20 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	class USceneComponent* DefaulSceneRoot;
-
-	//Componente de Malla para el proyectil
-	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Projectile")
-	class UStaticMeshComponent* Projectil_Mesh;
-
-	//Componente de Movimiento para el proyectil
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Projectile")
-	class UProjectileMovementComponent* Projectil_Movement; // movimiento
-
-	//Componente de colision para el proyectil
-	UPROPERTY(EditAnywhere, Category = "Projectile")
-	class UCapsuleComponent* Projectil_Collision; // para colisiones 
 
 public:
-	float Danio_D_B;
-	//Danio del proyectil 
-	float DanioProvocado;
-	void FireInDiagonal();
+	class APatron_StatePawn* Pawn;
+	UStaticMeshComponent* BombMesh;
+	float velocidad;
+	FVector UltimaPosicionJugador;
+	FVector Direction;
+	bool bInitialized;
+
+	virtual void Mover(float DeltaTime);
+	void SetUltimaPosicionJugador(FVector Posicion);
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 };

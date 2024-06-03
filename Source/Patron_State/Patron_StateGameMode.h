@@ -20,26 +20,10 @@ protected:
 	virtual void BeginPlay() override;
 public:
 	virtual void Tick(float DeltaTime) override;
-	ANaveTerrestre* NaveTerrestre;
-
-	//void AlternarEstados();
-	FTimerHandle EstadoTimerHandle;
-	bool bEstadoInicial;
-	FTimerHandle EstadoATimerHandle;
-	FTimerHandle EstadoTTimerHandle;
-	float TiempoTranscurrido;
 public:
-	TArray<ANaveTerrestre*> Naves;
-	class AEscaner* Radar;
-	ANaveTerrestreEspecial* NaveEspecial;
-	ANaveTerrestreModificado* NaveModificado;
-	FVector ubicacionInicialNavesCazas;
-	FVector ubicacionInicialNavesTanques;
-	FVector ubicacionInicialNavesFugaces;
-	
 	float VidaPromedio;
-
+public:
+	class ANaveTerrestre* Nave;
+	void crearNave();
+	float tiempo;
 };
-
-
-

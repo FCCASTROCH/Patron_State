@@ -2,7 +2,6 @@
 
 #pragma once
 
-#pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
@@ -23,23 +22,26 @@ protected:
 
 public:
     virtual void Tick(float DeltaTime) override;
-    public:
-	/** Offset from the ships location to spawn projectiles */
-
-
-	float TiempoDisparo;
+private:
+	FVector DireccionMovimiento;
+	float DistanciaRecorrida;
+	float LongitudLadoCuadrado;
+	float VelocidadMovimiento;
 
 protected:
 	class ANaveTerrestre* NaveT;
 
-
 public:
-	void SetNaveTerrestre(class ANaveTerrestre* _Nave) override;
-	void Mover(float DeltaTime) override;
-	void Disparar() override;
 
-private:
-	float MoveSpeed;
-	FVector TargetLocation;
-	bool bIsMoving;
+	virtual void SetNaveTerrestre(class ANaveTerrestre* Terrestre) override;
+
+	virtual void Conducir() override;
+
+	virtual void Volar() override {};
+	
+	virtual void Navegar() override {};
+	//Disparar acorde a disparar de formas diferentes
+	virtual void Disparar()override;
+	//para establecer estados
+	virtual FString Estado()override;
 };

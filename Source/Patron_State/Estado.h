@@ -22,15 +22,21 @@ class PATRON_STATE_API IEstado
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	
 
 
 
-	float TiempoDisparo;
-	//Establecemos a la Nave Nodriza
-	virtual void SetNaveTerrestre(class ANaveTerrestre* NaveNodriza) = 0;
 
-	//Funciones que compartiran con los estados y la nave nodriza
-	virtual void Mover(float DeltaTime) = 0;
+	//Establecer Nave
+	virtual void SetNaveTerrestre(class ANaveTerrestre* Terrestre) = 0;
+
+	virtual void Conducir() = 0;
+
+	virtual void Volar() = 0;
+
+	virtual void Navegar() = 0;
+	//Disparar acorde a disparar de formas diferentes
 	virtual void Disparar() = 0;
-	};
+	//para establecer estados
+	virtual FString Estado() = 0;
+	
+};

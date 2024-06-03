@@ -23,17 +23,31 @@ protected:
 protected:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	class ANaveTerrestre* NaveE;
-
-
-
-public:
-	void SetNaveTerrestre(class ANaveTerrestre* _Nave) override;
-	void Disparar() override;
-	
+	class ANaveTerrestre* NaveEs;
 private:
-	void Mover(float DeltaTime) override {};
-	FVector TargetLocation;
-	bool bIsMoving ;
-	float MoveSpeed;
+	float Radio;
+	float Angulo;
+	float VelocidadAngular; // En radianes por segundo
+	FVector Centro;
+	int MaxProjectile;
+
+	int NumberFired;
+	bool bCanFire;
+
+	FVector UPJugador;
+	float TiempoDisparo;
+public:
+
+	virtual void SetNaveTerrestre(class ANaveTerrestre* Terrestre) override;
+
+	virtual void Conducir() override {};
+
+	virtual void Volar() override {};
+
+	virtual void Navegar() override ;
+	//Disparar acorde a disparar de formas diferentes
+	virtual void Disparar()override;
+	//para establecer estados
+	virtual FString Estado()override;
+	void ResetCanFire();
 };

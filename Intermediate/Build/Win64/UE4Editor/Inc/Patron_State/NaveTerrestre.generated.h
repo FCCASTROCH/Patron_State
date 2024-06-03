@@ -22,8 +22,7 @@ private: \
 	friend struct Z_Construct_UClass_ANaveTerrestre_Statics; \
 public: \
 	DECLARE_CLASS(ANaveTerrestre, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Patron_State"), NO_API) \
-	DECLARE_SERIALIZER(ANaveTerrestre) \
-	virtual UObject* _getUObject() const override { return const_cast<ANaveTerrestre*>(this); }
+	DECLARE_SERIALIZER(ANaveTerrestre)
 
 
 #define Patron_State_Source_Patron_State_NaveTerrestre_h_16_INCLASS \
@@ -32,8 +31,7 @@ private: \
 	friend struct Z_Construct_UClass_ANaveTerrestre_Statics; \
 public: \
 	DECLARE_CLASS(ANaveTerrestre, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Patron_State"), NO_API) \
-	DECLARE_SERIALIZER(ANaveTerrestre) \
-	virtual UObject* _getUObject() const override { return const_cast<ANaveTerrestre*>(this); }
+	DECLARE_SERIALIZER(ANaveTerrestre)
 
 
 #define Patron_State_Source_Patron_State_NaveTerrestre_h_16_STANDARD_CONSTRUCTORS \
