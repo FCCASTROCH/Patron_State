@@ -2,7 +2,8 @@
 
 
 #include "Estrategia1.h"
-
+#include "ProyectilE.h"
+#include "NaveEspecial.h"
 // Sets default values
 AEstrategia1::AEstrategia1()
 {
@@ -25,3 +26,12 @@ void AEstrategia1::Tick(float DeltaTime)
 
 }
 
+void AEstrategia1::Disparar(ANaveEspecial* especial)
+{
+	FVector posicion = especial->GetActorLocation();
+	FRotator rotacion = especial->GetActorRotation();
+	FVector offset = FVector(0, 100, 0);
+	FVector posicionFinal = posicion + offset;
+	FRotator rotacionFinal = rotacion;
+	GetWorld()->SpawnActor<AProyectilE>(posicionFinal, rotacionFinal);
+}

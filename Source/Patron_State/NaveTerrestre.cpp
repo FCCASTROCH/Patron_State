@@ -34,6 +34,7 @@ void ANaveTerrestre::BeginPlay()
 	EstadoEspacial = GetWorld()->SpawnActor<AEstadoEspacial>(AEstadoEspacial::StaticClass());
 
 	Estado = EstadoTerrestre;
+	//opcional
 	inicializar();
 }
 
@@ -47,17 +48,17 @@ void ANaveTerrestre::Tick(float DeltaTime)
 void ANaveTerrestre::inicializar()
 {
 		//EstadoTerrestre = GetWorld()->SpawnActor<AEstadoTerrestre>(AEstadoTerrestre::StaticClass());
+    
 		EstadoTerrestre->SetNaveTerrestre(this);
-		EstablecerEstados(EstadoTerrestre);
+		EstablecerEstados(EstadoAereo);
 	
 	//EstadoAereo = GetWorld()->SpawnActor<AEstadoAereo>(AEstadoAereo::StaticClass());
 	EstadoAereo->SetNaveTerrestre(this);
-	EstablecerEstados(EstadoAereo);
+	EstablecerEstados(EstadoEspacial);
     
 	//	EstadoEspacial = GetWorld()->SpawnActor<AEstadoEspacial>(AEstadoEspacial::StaticClass());
 		EstadoEspacial->SetNaveTerrestre(this);
-		EstablecerEstados(EstadoEspacial);
-	
+		EstablecerEstados(EstadoTerrestre);
 		
 	//Estado = EstadoTerrestre;
 }
@@ -81,10 +82,11 @@ void ANaveTerrestre::Disparar()
 {
 	Estado->Disparar();
 }
-//talves se borre sustituya a setestado
+
 void ANaveTerrestre::EstablecerEstados(IEstado* _Estado)
 {
 	Estado = _Estado;
+	//en aqui no se pudo cambiar de malla asi que para simular se cambio de tamaño
 	if (Estado == EstadoTerrestre)
 	{
 
@@ -99,7 +101,6 @@ void ANaveTerrestre::EstablecerEstados(IEstado* _Estado)
 		NaveTrestreP->SetWorldScale3D(FVector(2.0f, 2.0f, 2.0f));
 	}
 }
-
 
 IEstado* ANaveTerrestre::GetEstado()
 {
@@ -136,6 +137,9 @@ FString ANaveTerrestre::ObtenerEstadoActual()
 //	{
 //		Destroy();
 //	}
+
+
+
 FVector ANaveTerrestre::GetSafeActorLocation() const
 {
 	if (RootComponent)

@@ -25,7 +25,7 @@ protected:
 	class ANaveTerrestre* NaveAe;
 private:
 	TArray<FVector> VerticesTriangulo;
-	//IInventarioAFactory* inventarioFactory;
+	
 	int VerticeActual;
 	FVector DireccionMovimiento;
 	float DistanciaRecorrida;

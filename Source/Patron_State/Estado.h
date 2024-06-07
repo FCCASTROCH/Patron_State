@@ -28,15 +28,13 @@ public:
 
 	//Establecer Nave
 	virtual void SetNaveTerrestre(class ANaveTerrestre* Terrestre) = 0;
-
+	//
 	virtual void Conducir() = 0;
-
-	virtual void Volar() = 0;
-
+	virtual void Volar() = 0;//Las 3 formas que va a tomar el estado la nave se le puede implificar con solo mover
 	virtual void Navegar() = 0;
-	//Disparar acorde a disparar de formas diferentes
+	//
 	virtual void Disparar() = 0;
-	//para establecer estados
+
 	virtual FString Estado() = 0;
 	
 };

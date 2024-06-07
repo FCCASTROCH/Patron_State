@@ -15,3 +15,5 @@ C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4E
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Patron_StateGameMode.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\Patron_StateProjectile.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Patron_StateProjectile.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\IStrategy.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\IStrategy.generated.h

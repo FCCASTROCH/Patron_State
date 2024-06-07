@@ -46,6 +46,7 @@ public:
 	FORCEINLINE IEstado* GetEstadoTerrestre();
 	FORCEINLINE FString ObtenerEstadoActual();
 
+	//esto funcion inservible para esta clase
 	FORCEINLINE FVector GetSafeActorLocation() const;
 };
 

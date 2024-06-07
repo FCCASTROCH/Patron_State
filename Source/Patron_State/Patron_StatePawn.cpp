@@ -12,6 +12,15 @@
 #include "Engine/StaticMesh.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundBase.h"
+#include "Components/InputComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Engine/CollisionProfile.h"
+#include "Engine/StaticMesh.h"
+#include "Kismet/GameplayStatics.h"
+#include "IStrategy.h"
+#include "Estrategia1.h"
+#include "Estrategia2.h"
+#include "Estrategia3.h"
 
 const FName APatron_StatePawn::MoveForwardBinding("MoveForward");
 const FName APatron_StatePawn::MoveRightBinding("MoveRight");
@@ -50,17 +59,28 @@ APatron_StatePawn::APatron_StatePawn()
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	FireRate = 0.1f;
 	bCanFire = true;
+	Jump = FInputActionKeyMapping("salta", EKeys::T, 0, 0, 0, 0);
+	crecer = FInputActionKeyMapping("crece", EKeys::Y, 0, 0, 0, 0);
+	Disparar = FInputActionKeyMapping("dispara", EKeys::U, 0, 0, 0, 0);
 }
 
 void APatron_StatePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	check(PlayerInputComponent);
+	UPlayerInput::AddEngineDefinedActionMapping(Jump);
+	UPlayerInput::AddEngineDefinedActionMapping(crecer);
+	UPlayerInput::AddEngineDefinedActionMapping(Disparar);
 
 	// set up gameplay key bindings
 	PlayerInputComponent->BindAxis(MoveForwardBinding);
 	PlayerInputComponent->BindAxis(MoveRightBinding);
 	PlayerInputComponent->BindAxis(FireForwardBinding);
 	PlayerInputComponent->BindAxis(FireRightBinding);
+
+
+	PlayerInputComponent->BindAction("salta", IE_Pressed, this, &APatron_StatePawn::EstartegiaSaltar);
+	PlayerInputComponent->BindAction("crece", IE_Pressed, this, &APatron_StatePawn::EstrategiaCrecer);
+	PlayerInputComponent->BindAction("dispara", IE_Pressed, this, &APatron_StatePawn::EstrategiaDisparo);
 }
 
 void APatron_StatePawn::Tick(float DeltaSeconds)
@@ -135,5 +155,47 @@ void APatron_StatePawn::FireShot(FVector FireDirection)
 void APatron_StatePawn::ShotTimerExpired()
 {
 	bCanFire = true;
+}
+
+void APatron_StatePawn::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	
+}
+
+void APatron_StatePawn::CambiarEstrategia(AActor* estrategias)
+{
+	estratega = Cast<IIStrategy>(estrategias);
+}
+
+void APatron_StatePawn::EjecutarEstrategia()
+{
+	//estratega->Ejecutar();
+}
+
+void APatron_StatePawn::EstrategiaDisparo()
+{
+
+	Estartega3 = GetWorld()->SpawnActor<AEstrategia3>(AEstrategia3::StaticClass());
+	CambiarEstrategia(Estartega3);
+	EjecutarEstrategia();
+	
+}
+
+void APatron_StatePawn::EstrategiaCrecer()
+{
+	Estartega2 = GetWorld()->SpawnActor<AEstrategia2>(AEstrategia2::StaticClass());
+	CambiarEstrategia(Estartega2);
+	EjecutarEstrategia();
+}
+
+void APatron_StatePawn::EstartegiaSaltar()
+{	
+	startega1 = GetWorld()->SpawnActor<AEstrategia1>(AEstrategia1::StaticClass());
+	CambiarEstrategia(startega1);
+	EjecutarEstrategia();
+	startega1->Destroy();
+
 }
 

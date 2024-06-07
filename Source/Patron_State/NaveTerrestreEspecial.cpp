@@ -8,12 +8,12 @@
 #include "Engine/World.h"
 ANaveTerrestreEspecial::ANaveTerrestreEspecial()
 {
-    PrimaryActorTick.bCanEverTick = true;
+   PrimaryActorTick.bCanEverTick = true;
  //   static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
  //   NaveTrestreP = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("NaveTrestreP"));
- //  // NaveTrestreP->SetStaticMesh(ShipMesh.Object);
- //   // Set the StaticMeshComponent as the RootComponent
- //   RootComponent = NaveTrestreP;
+ //   NaveTrestreP->SetStaticMesh(ShipMesh.Object);
+ //    Set the StaticMeshComponent as the RootComponent
+ //   RootComponent = NaveTrestreP;*/
 	//// Verifica si se encontró el StaticMesh
 	//if (ShipMesh.Succeeded())
 	//{
@@ -25,7 +25,6 @@ ANaveTerrestreEspecial::ANaveTerrestreEspecial()
 	//}
     
 }
-
 
 void ANaveTerrestreEspecial::BeginPlay()
 {

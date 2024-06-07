@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "IStrategy.h"
 #include "Estrategia1.generated.h"
 
 UCLASS()
-class PATRON_STATE_API AEstrategia1 : public AActor
+class PATRON_STATE_API AEstrategia1 : public AActor,public IIStrategy
 {
 	GENERATED_BODY()
 	
@@ -22,5 +23,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	
+	virtual void Disparar(class ANaveEspecial*especial) override;
+	
 };

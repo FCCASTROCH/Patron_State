@@ -6,16 +6,17 @@
 #include "Patron_StateProjectile.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Components/StaticMeshComponent.h"
+#include "IStrategy.h"
 #include "Engine/World.h"
 
 ANaveTerrestreModificado::ANaveTerrestreModificado()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
-	//NaveTrestreP = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("NaveTrestreP"));
-	//// NaveTrestreP->SetStaticMesh(ShipMesh.Object);
-	// // Set the StaticMeshComponent as the RootComponent
-	//RootComponent = NaveTrestreP;
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
+	NaveTrestreP = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("NaveTrestreP"));
+	// NaveTrestreP->SetStaticMesh(ShipMesh.Object);
+	 // Set the StaticMeshComponent as the RootComponent
+	RootComponent = NaveTrestreP;
 	//// Verifica si se encontró el StaticMesh
 	//if (ShipMesh.Succeeded())
 	//{
@@ -32,8 +33,17 @@ ANaveTerrestreModificado::ANaveTerrestreModificado()
 void ANaveTerrestreModificado::BeginPlay()
 {
 	Super::BeginPlay();
-	//InicializarEstados();
-	//PosicionInicial = GetActorLocation();
+	
+}
+
+void ANaveTerrestreModificado::CambiarEstrategia(AActor* estrategias)
+{
+	//estratega = Cast<IIStrategy>(estrategias);
+}
+
+void ANaveTerrestreModificado::EjecutarEstrategia()
+{
+	//estratega->Mover();
 }
 
 void ANaveTerrestreModificado::Tick(float DeltaTime)

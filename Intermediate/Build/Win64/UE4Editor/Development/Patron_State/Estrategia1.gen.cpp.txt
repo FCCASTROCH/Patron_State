@@ -2,4 +2,6 @@ C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4E
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State/Estrategia1.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\IStrategy.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\IStrategy.generated.h
 C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\Estrategia1.generated.h

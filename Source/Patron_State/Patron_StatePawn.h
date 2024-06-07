@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+
+#include "GameFramework/PlayerInput.h"
 #include "Patron_StatePawn.generated.h"
 
 UCLASS(Blueprintable)
@@ -74,5 +76,25 @@ public:
 	FORCEINLINE class UCameraComponent* GetCameraComponent() const { return CameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+	virtual void BeginPlay() override;
+	//virtual void tick(float DeltaTime) override;
+
+	class IIStrategy* estratega;
+
+	class AEstrategia1* startega1;
+	class AEstrategia2* Estartega2;
+	class AEstrategia3* Estartega3;
+
+	void CambiarEstrategia(AActor*estrategias);
+	void EjecutarEstrategia();
+
+	void EstrategiaDisparo();
+	void EstrategiaCrecer();
+	void EstartegiaSaltar();
+
+	FInputActionKeyMapping  Jump;
+	FInputActionKeyMapping  Disparar;
+	FInputActionKeyMapping  crecer;
 };
 

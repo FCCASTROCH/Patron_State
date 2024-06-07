@@ -22,5 +22,10 @@ protected:
 
 
 public:
+	class IIStrategy* estratega;
+
+	void CambiarEstrategia(AActor* estrategias);
+	void EjecutarEstrategia();
+
 	
 };

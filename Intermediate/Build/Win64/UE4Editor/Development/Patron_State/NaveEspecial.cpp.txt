@@ -1,0 +1,5 @@
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Development\Patron_State\Definitions.Patron_State.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\NaveEspecial.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\NaveEspecial.generated.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Source\Patron_State\IStrategy.h
+C:\Users\HP\Documents\Unreal Projects\Patron_State\Intermediate\Build\Win64\UE4Editor\Inc\Patron_State\IStrategy.generated.h

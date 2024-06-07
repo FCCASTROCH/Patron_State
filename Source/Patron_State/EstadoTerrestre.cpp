@@ -50,22 +50,22 @@ void AEstadoTerrestre::Conducir()
 	if (DistanciaRecorrida >= LongitudLadoCuadrado)
 	{
 		DistanciaRecorrida = 0.0f;
-		// Cambia la dirección del movimiento en sentido horario
+
 		if (DireccionMovimiento == FVector(1.0f, 0.0f, 0.0f))
 		{
-			DireccionMovimiento = FVector(0.0f, 1.0f, 0.0f); // Mueve hacia adelante en el eje Y
+			DireccionMovimiento = FVector(0.0f, 1.0f, 0.0f); 
 		}
 		else if (DireccionMovimiento == FVector(0.0f, 1.0f, 0.0f))
 		{
-			DireccionMovimiento = FVector(-1.0f, 0.0f, 0.0f); // Mueve hacia atrás en el eje X
+			DireccionMovimiento = FVector(-1.0f, 0.0f, 0.0f); 
 		}
 		else if (DireccionMovimiento == FVector(-1.0f, 0.0f, 0.0f))
 		{
-			DireccionMovimiento = FVector(0.0f, -1.0f, 0.0f); // Mueve hacia atrás en el eje Y
+			DireccionMovimiento = FVector(0.0f, -1.0f, 0.0f); 
 		}
 		else if (DireccionMovimiento == FVector(0.0f, -1.0f, 0.0f))
 		{
-			DireccionMovimiento = FVector(1.0f, 0.0f, 0.0f); // Mueve hacia adelante en el eje X
+			DireccionMovimiento = FVector(1.0f, 0.0f, 0.0f); 
 		}
 	}
 	NaveT->SetActorRotation(DireccionMovimiento.Rotation());
